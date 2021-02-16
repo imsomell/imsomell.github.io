@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		:root {
+		  --animation: glitch; /* glitch, hue, fade, shrink */
+		  --speed: 2s;
+		  --easing: linear;
+		}
+		@font-face {
+  			font-family: RG;
+  			src: url(RG.ttf);
+		}
+		body{
+			margin:0;
+			font-family: "RG";
+			padding:0;
+			background: black;
+			}
+		#borderg{
+			padding: 0;
+			margin-top: 0;
+	    	margin-left: auto;
+	   		margin-right: auto;
+			width: 780px;
+			height: 640px;
+			background: url('BG2.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size:cover;
+
+		}
+		#gc{
+		
+		padding-left: 7px;
+	    padding-right: 0;
+	    margin-left: auto;
+	    margin-right: auto;
+	    padding-top: 48px;
+	    display: block;
+		
+		}
+		#sco{
+		text-transform: uppercase;
+		position: absolute;
+		top:45px;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+		
+		margin-bottom: 0;
+		margin-top: 0;
+		font-size: 20px;
+		color:#FFAB1C;
+		text-shadow: -2px 2px #fb6500;
+		}
+		#sco2{
+			font-size: 0.6em;
+		}
+		#playAgain{
+			font-size: 0.4em;
+		}
+		#gameover{
+			visibility: hidden;
+			width: 100%;
+			position: absolute;
+			top: 50px;
+			text-align: center;
+			font-family: "RG";
+			font-size: 3.5em;
+			text-transform: uppercase;
+  			text-align: center;
+ 			color: #2f99ff;
+ 			text-shadow: 0px 2px #255fcc;
+ 			animation: var(--animation) var(--speed) infinite var(--easing);
+		}
+		@keyframes glitch {
+  		0%, 12%, 15%, 52%, 55%, 82%, 85%, 100% { opacity: 1; transform: scaleX(1) scaleY(1) }  
+		  13% { opacity: .8; transform: scaleY(2); color: #0ff }
+		  53% { opacity: .8; transform: scaleX(.7);  color: #f0f }
+		  83% { opacity: .8; transform: rotate(-10deg); color: #ff0 }
+  		}
+  		@keyframes hue {  
+		  13% { color: #0ff }
+		  53% { color: #f0f }
+		  83% { color: #ff0 }
+		}
+
+		@keyframes shrink {  
+		   0% { transform: scaleY(1) }
+		  50% { transform: scaleY(.5) }
+		 100% { transform: scaleY(1) }
+		}
+
+		@keyframes fade {  
+		   0% { opacity: 1 }
+		  50% { opacity: 0 }
+		 100% { opacity: 1 }
+		}
+	</style>
+</head>
+<body>
+<div id="borderg">
+<p id="sco">Score: 0</p>
+<canvas id="gc" width="400" height="400"></canvas>
+</div>
+<div id="gameover">
+	<p>Game over!</p>
+	<p id="sco2">Your score is: 0</p>
+	<p id="playAgain">Press START to play again!</p>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	var start;
+	px=py=10;
+	gs=tc=20;
+	ax=ay=15;
+	xv=yv=0;
+	trail=[];
+	tail=4;
+	gameIsNotReady = false;
+	gamespeed=100;
+	ifmoved =false;
+	bulate = Math.floor(Math.random()*16777215).toString(16);
+	score = 0;
+	goingLeft = false;
+	goingRight = false;
+	goingDown = false;
+	goingUp = false;
+
+	window.onload=function(){
+		newGame();
+	}
+	function newGame(){
+		canv=document.getElementById("gc");
+		ctx=canv.getContext("2d");
+		document.addEventListener("keydown", keyPush);
+		px=py=10;
+		gs=tc=20;
+		ax=ay=15;
+		xv=yv=0;
+		trail=[];
+		tail=4;
+		gameIsNotReady = false;
+		gamespeed=100;
+		ifmoved =false;
+		bulate = Math.floor(Math.random()*16777215).toString(16);
+		score = 0;
+		sco = 0;	
+		ax=Math.floor(Math.random()*tc);
+		ay=Math.floor(Math.random()*tc);	
+		ctx.fillStyle = "#ffedad"
+		gameIsNotReady = false;
+		document.getElementById("sco").innerHTML = ("Score: " + score);
+		document.getElementById("gameover").style.visibility = "hidden";
+		start = setInterval(game, gamespeed);
+	}
+
+	function deadSnake(){
+		var deadAudio = new Audio("dead.wav");
+		deadAudio.play();
+	}
+
+	function GGWP(){
+		deadSnake();
+		document.getElementById("sco").innerHTML = "";
+		document.getElementById("sco2").innerHTML = ("Score: " + score);
+		document.getElementById("gameover").style.visibility = "visible";
+		gameIsNotReady = true;
+		document.getElementById("borderg").style.opacity = 0.2;
+	}
+	function game() {
+		document.getElementById("borderg").style.opacity = 1;
+		px+=xv;
+		py+=yv;
+		if(px<0){
+			px= tc-1;
+		}
+		if(px>tc-1){
+			px= 0;
+		}
+		if(py<0){
+			py= tc-1;
+		}
+		if(py>tc-1){
+			py= 0;
+		}
+		ctx.fillStyle="black";
+		ctx.fillRect(0,0,canv.width,canv.height);
+
+		
+		for (var i = 0; i < trail.length; i++) {
+			ctx.fillRect(trail[i].x*gs,trail[i].y*gs, gs-2,gs-2);
+			//console.log(gs)
+			//randomColor = Math.floor(Math.random()*16777215).toString(16);
+ 			ctx.fillStyle="lime";
+			if (trail[i].x==px && trail[i].y==py && ifmoved) {
+				
+				GGWP();
+				clearInterval(start);
+			}
+
+		}
+
+		trail.push({x:px,y:py});
+		while(trail.length>tail){
+			trail.shift();
+		}
+
+		if (ax==px && ay==py) {
+				tail++;
+				score++;
+				document.getElementById("sco").innerHTML = ("Score: " + score);
+				ax=Math.floor(Math.random()*tc);
+				ay=Math.floor(Math.random()*tc);
+				console.log(xv + " and " + yv);	
+			}
+
+		ctx.fillStyle="red";
+		ctx.fillRect(ax*gs, ay*gs, gs-2,gs-2);
+
+	}
+	function keyPush(evt){
+		switch(evt.keyCode){
+			case 37:
+				if (gameIsNotReady == false && goingRight == false) {
+				xv=-1; yv=0;
+				ifmoved = true;
+				goingLeft = true;
+				goingRight = false;
+				goingDown = false;
+				goingUp = false;
+
+				}
+				break;
+			case 38:
+				if (gameIsNotReady == false  && goingDown == false) {
+				xv=0; yv=-1;
+				ifmoved = true;
+				goingUp = true;
+				goingLeft = false;
+				goingRight = false;
+				goingDown = false;
+
+				}
+				break;
+			case 39:
+				if (gameIsNotReady == false && goingLeft == false) {
+				xv=1; yv=0;
+				ifmoved = true;
+				goingRight = true;
+				goingLeft = false;
+				goingDown = false;
+				goingUp = false;
+
+				}
+				break;
+			case 40:
+				if (gameIsNotReady == false && goingUp == false) {
+				xv=0; yv=1;
+				ifmoved = true;
+				goingDown = true;
+				goingLeft = false;
+				goingRight = false;
+				goingUp = false;
+
+				}
+				break;
+			case 13:
+				if (gameIsNotReady) {
+					newGame();
+					score = 0;		
+				}
+				
+				break;
+		}
+	}
+
+
+</script>
