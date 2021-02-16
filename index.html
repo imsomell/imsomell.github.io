@@ -4,16 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
+
     <title>GrabeTech Business Solutions</title>
 </head>
 
@@ -22,10 +17,10 @@
     <header id="showcase" class="grid">
         <div class="bg-image"></div>
         <div class="content-wrap">
-            <h1 class="">Welcome to GrabeTech Business Solutions</h1>
+            <h1 class="">GrabeTech Business Solutions</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis et, repellat quisquam illum suscipit
-                obcaecati placeat consectetur rem impedit, optio facere, facilis quidem veritatis consequatur!</p>
-            <a href="#section-b" class="btn shrink-on-hover">Read More</a>
+                obcaecati placeat consectetur rem impedit, optio facere, facilis quidem veritatis!</p>
+            <a href="#section-a" class="btn grow-on-hover">Read More</a>
         </div>
     </header>
 
@@ -40,9 +35,10 @@
 
         <!-- Section A -->
         <section id="section-a" class="grid">
-            <div class="content-wrap slide-up">
-                <h2 class="content-title ">Web & Mobile Application Development</h2>
-                <div class="content-text">
+            <div class="content-wrap">
+                <h2 class="content-title animate__animated animate__slideInUp">Web & Mobile Application
+                    Development</h2>
+                <div class="content-text animate__animated animate__slideInUp">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur blanditiis reiciendis,
                         assumenda, aspernatur dignissimos quod itaque dolorem expedita officiis dolore deserunt non.
                         Quasi,
@@ -55,24 +51,34 @@
 
         <!-- Section B -->
         <section id="section-b" class="grid">
-            <ul>
+            <ul  data-aos="fade-up"data-aos-once="true">
                 <li>
                     <div class="card">
+                        <div class="card-bg-image">
                         <img src="images/banner2.jpg" alt="banner-2">
+                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">Business Website Development</h3>
+                            <h3 class="card-title">Website Development</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum ex doloribus quaerat
                                 corporis rerum in cumque aut aliquam ab quasi.</p>
+                        </div>
+                        <div class="card-button">
+                            <a href="#">Explore <i class="icon material-icons">arrow_forward</i></a>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="card">
+                        <div class="card-bg-image">
                         <img src="images/banner3.jpg" alt="banner-3">
+                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Mobile Development</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum ex doloribus quaerat
                                 corporis rerum in cumque aut aliquam ab quasi.</p>
+                        </div>
+                        <div class="card-button">
+                            <a href="#">Explore <i class="icon material-icons">arrow_forward</i></a>
                         </div>
                     </div>
                 </li>
@@ -84,6 +90,9 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum ex doloribus quaerat
                                 corporis rerum in cumque aut aliquam ab quasi.</p>
                         </div>
+                        <div class="card-button">
+                            <a href="#">Explore <i class="icon material-icons">arrow_forward</i></a>
+                        </div>
                     </div>
                 </li>
                 <li>
@@ -94,9 +103,13 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum ex doloribus quaerat
                                 corporis rerum in cumque aut aliquam ab quasi.</p>
                         </div>
+                        <div class="card-button">
+                            <a href="#">Explore <i class="icon material-icons">arrow_forward</i></a>
+                        </div>
                     </div>
                 </li>
             </ul>
+
         </section>
 
         <!-- Section C -->
@@ -114,7 +127,6 @@
                 <h2 class="content-title">Contact Us</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus deleniti ipsam ullam
                     nesciunt ratione? Perferendis atque aut facilis tempore voluptate.</p>
-                <p>macapagal.jumel@gmail.com</p>
             </div>
             <div class="box">
                 <h2 class="content-title">About Our Company</h2>
@@ -128,10 +140,14 @@
     <!-- Footer -->
     <footer id="main-footer" class="grid">
         <div>GrabeTech Business Solutions</div>
-        <div>Project By <a href="www.facebook.com/j.l.macapagal" target="_blank">Mel Macapagal</a></div>
+        <div>Project By <a href="https://github.com/imsomell" target="_blank">Mel Macapagal</a> <a href="https://www.facebook.com/j.l.macapagal" target="_blank"><i class="icon material-icons">facebook</i> <a href="https://www.facebook.com/j.l.macapagal" target="_blank"><i class="icon material-icons">twitter</i></div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
