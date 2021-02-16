@@ -25,6 +25,7 @@ h1,h2,h3{
 }
 
 p{
+    font-size: 1em;
     margin: 0;
     padding: 1em 0;
 }
