@@ -8,9 +8,13 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="stylesheet" href="css/style.css">
     
-    <title>Web Solutions</title>
+    <title>GrabeTech Business Solutions</title>
 </head>
 
 <body>
@@ -18,19 +22,26 @@
     <header id="showcase" class="grid">
         <div class="bg-image"></div>
         <div class="content-wrap">
-            <h1>Welcome to InnoWebiTech</h1>
+            <h1 class="">Welcome to GrabeTech Business Solutions</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis et, repellat quisquam illum suscipit
                 obcaecati placeat consectetur rem impedit, optio facere, facilis quidem veritatis consequatur!</p>
-            <a href="#section-b" class="btn">Read More</a>
+            <a href="#section-b" class="btn shrink-on-hover">Read More</a>
         </div>
     </header>
 
     <!-- Main Area -->
     <main id="main">
+
+        <!-- Loader -->
+        <div class="loader-wrapper">
+            <span class="loader"><span class="loader-inner"></span></span>
+            <p>LOADING...</p>
+        </div>
+
         <!-- Section A -->
         <section id="section-a" class="grid">
-            <div class="content-wrap">
-                <h2 class="content-title">Web & Mobile Application Development</h2>
+            <div class="content-wrap slide-up">
+                <h2 class="content-title ">Web & Mobile Application Development</h2>
                 <div class="content-text">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur blanditiis reiciendis,
                         assumenda, aspernatur dignissimos quod itaque dolorem expedita officiis dolore deserunt non.
@@ -103,7 +114,7 @@
                 <h2 class="content-title">Contact Us</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus deleniti ipsam ullam
                     nesciunt ratione? Perferendis atque aut facilis tempore voluptate.</p>
-                <p>www.facebook.com/j.l.macapagal</p>
+                <p>macapagal.jumel@gmail.com</p>
             </div>
             <div class="box">
                 <h2 class="content-title">About Our Company</h2>
@@ -116,9 +127,11 @@
 
     <!-- Footer -->
     <footer id="main-footer" class="grid">
-        <div>InnoWebiTech</div>
+        <div>GrabeTech Business Solutions</div>
         <div>Project By <a href="www.facebook.com/j.l.macapagal" target="_blank">Mel Macapagal</a></div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
