@@ -41,6 +41,7 @@ p{
 
 .btn:hover{
     background: #eaeaea;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     color:#333;
 }
 
@@ -86,19 +87,28 @@ p{
     list-style: none;
     margin: 0;
     padding: 0;
+    background: #333;
 }
 
 #section-b li{
-    margin-bottom: 1em;
-    background: #fff;;
+    margin-bottom: 1.5em;
+    background: #333;;
     color:#333;
 }
 
-/* .card img{
-    height: 300px;
-} */
+
+.card{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition-timing-function: ease;
+    transition: 0.25s;
+}
+.card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transform: translatey(-2%);
+}
 
 .card-content{
+    background: #fff;
     padding: 1.5em;
 }
 
@@ -155,6 +165,7 @@ p{
     .content-wrap, #section-b ul{
         grid-column: 2/4;
     }
+    
 
     .box, #main-footer div{
         grid-column: span 2;
@@ -162,11 +173,12 @@ p{
 
     #section-b ul{
         display:flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     #section-b li{
-        width:31%;
+        width:49%;
     }
 
 }
